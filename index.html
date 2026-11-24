@@ -1,195 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0c0e">
-<meta name="description" content="AVENIQ — Digital Growth & Technology Partner. Connecting strategy, technology and execution to move businesses forward.">
-<title>AVENIQ — Digital Growth & Technology Partner</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0b0c0e;--surface:#131518;--surface2:#191c20;--white:#f3f1ec;--muted:#999b9d;--gold:#c9ac79;--line:rgba(255,255,255,.12);--font:'Manrope',sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.7}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-.container{width:min(1160px,88%);margin:auto}
-.eyebrow{color:var(--gold);font-size:11px;letter-spacing:2.5px;font-weight:700;text-transform:uppercase}
-.section{padding:115px 0}
-.section-heading{font:600 clamp(34px,5vw,58px)/1.15 var(--font);letter-spacing:-2px;max-width:750px;margin:20px 0}
-.section-copy{color:var(--muted);max-width:590px}
-header{position:fixed;inset:0 0 auto;z-index:100;background:rgba(11,12,14,.88);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:.3s}
-header.scrolled{border-color:var(--line)}
-nav{height:82px;display:flex;align-items:center;justify-content:space-between}
-.logo{font:800 27px var(--font);letter-spacing:3px}
-.logo span{color:var(--gold)}
-.nav-links{display:flex;gap:35px;align-items:center}
-.nav-links a{color:#b9b9b9;font-size:12px;transition:.25s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{border:1px solid rgba(201,172,121,.65);padding:11px 19px;color:var(--gold)!important}
-.menu-toggle{display:none;background:none;border:0;color:white;font-size:25px;cursor:pointer}
-.hero{min-height:850px;padding:190px 0 100px;display:flex;align-items:center;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;width:700px;height:700px;right:-260px;top:100px;border:1px solid rgba(201,172,121,.13);border-radius:50%;box-shadow:0 0 0 70px rgba(201,172,121,.025),0 0 0 150px rgba(201,172,121,.02)}
-.hero:after{content:"";position:absolute;width:450px;height:450px;right:-135px;top:225px;border:1px solid rgba(201,172,121,.2);border-radius:50%}
-.hero-content{position:relative;z-index:2;max-width:850px}
-.hero h1{font:600 clamp(48px,7.5vw,94px)/1.08 var(--font);letter-spacing:-5px;margin:25px 0}
-.hero h1 span{color:var(--gold)}
-.hero p{color:#a5a6a8;max-width:570px;font-size:16px;line-height:1.9}
-.hero-actions{display:flex;gap:15px;margin-top:38px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:15px 23px;font-size:11px;letter-spacing:1px;font-weight:700;text-transform:uppercase;transition:.3s}
-.btn-primary{background:var(--gold);color:#101113}
-.btn-primary:hover{background:#e0c99f;transform:translateY(-3px)}
-.btn-outline{border:1px solid var(--line);color:var(--white)}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.hero-bottom{position:absolute;bottom:35px;left:0;right:0;display:flex;justify-content:space-between;color:#666;font-size:10px;letter-spacing:2px}
-.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start}
-.intro-statement{font:500 clamp(28px,3.5vw,43px)/1.35 var(--font);letter-spacing:-1.5px}
-.intro-statement span{color:var(--gold)}
-.intro-details{padding-top:12px;color:var(--muted)}
-.intro-details p+p{margin-top:20px}
-.text-link{display:inline-block;margin-top:30px;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1px}
-.capabilities{background:#101215}
-.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:55px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.cap-card{min-height:260px;padding:32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.3s}
-.cap-card:hover{background:var(--surface2)}
-.cap-number{color:var(--gold);font-size:11px;letter-spacing:2px}
-.cap-card h3{font:600 20px var(--font);margin:30px 0 13px}
-.cap-card p{color:var(--muted);font-size:13px}
-.cap-arrow{display:block;color:var(--gold);margin-top:25px}
-.approach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-top:55px}
-.step{border-top:1px solid var(--gold);padding-top:25px}
-.step-number{color:var(--gold);font-size:12px}
-.step h3{font:600 19px var(--font);margin:22px 0 12px}
-.step p{color:var(--muted);font-size:13px}
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:50px}
-.work-card{min-height:330px;background:var(--surface);border:1px solid var(--line);padding:35px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.work-card:after{content:"";position:absolute;width:250px;height:250px;right:-80px;top:-80px;border:1px solid rgba(201,172,121,.18);border-radius:50%}
-.work-type{color:var(--gold);font-size:10px;letter-spacing:2px}
-.work-card h3{font:600 clamp(24px,3vw,34px)/1.25 var(--font);max-width:360px;position:relative;z-index:1}
-.work-card p{color:var(--muted);font-size:13px;margin-top:12px}
-.contact{background:var(--gold);color:#111214;padding:95px 0}
-.contact .eyebrow{color:#493b28}
-.contact h2{font:700 clamp(40px,6vw,72px)/1.1 var(--font);letter-spacing:-3px;max-width:780px;margin:25px 0}
-.contact p{max-width:520px;color:#413a30}
-.contact .btn-primary{background:#111214;color:white;margin-top:30px}
-.contact .btn-primary:hover{background:#292a2b}
-footer{padding:45px 0}
-.footer-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:35px;border-bottom:1px solid var(--line)}
-.footer-tagline{color:var(--muted);font-size:12px}
-.footer-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:25px;color:#777;font-size:11px}
-.footer-social{display:flex;gap:22px}
-.footer-social a:hover{color:var(--gold)}
-@media(max-width:800px){
-.nav-links{display:none;position:absolute;top:82px;left:0;right:0;background:#111315;padding:30px 6%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
-.nav-links.open{display:flex}.menu-toggle{display:block}
-.hero{min-height:760px;padding-top:150px}.hero h1{letter-spacing:-2.5px}
-.intro-grid{grid-template-columns:1fr;gap:30px}
-.cap-grid{grid-template-columns:1fr 1fr}.approach-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:520px){
-.section{padding:80px 0}.hero{min-height:700px}
-.hero-bottom{font-size:8px}.cap-grid,.work-grid{grid-template-columns:1fr}
-.cap-card{min-height:220px}.approach-grid{gap:35px 20px}
-.footer-top,.footer-bottom{align-items:flex-start;flex-direction:column}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0c0e">
+    <meta name="description"
+        content="AVENIQ — Digital Growth & Technology Partner. Connecting strategy, technology and execution to move businesses forward.">
+    <title>AVENIQ — Digital Growth & Technology Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0c0e;
+            --surface: #131518;
+            --surface2: #191c20;
+            --white: #f3f1ec;
+            --muted: #999b9d;
+            --gold: #c9ac79;
+            --line: rgba(255, 255, 255, .12);
+            --font: 'Manrope', sans-serif
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.7
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button {
+            font: inherit
+        }
+
+        .container {
+            width: min(1160px, 88%);
+            margin: auto
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+            text-transform: uppercase
+        }
+
+        .section {
+            padding: 115px 0
+        }
+
+        .section-heading {
+            font: 600 clamp(34px, 5vw, 58px)/1.15 var(--font);
+            letter-spacing: -2px;
+            max-width: 750px;
+            margin: 20px 0
+        }
+
+        .section-copy {
+            color: var(--muted);
+            max-width: 590px
+        }
+
+        header {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 100;
+            background: rgba(11, 12, 14, .88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid transparent;
+            transition: .3s
+        }
+
+        header.scrolled {
+            border-color: var(--line)
+        }
+
+        nav {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .logo {
+            font: 800 27px var(--font);
+            letter-spacing: 3px
+        }
+
+        .logo span {
+            color: var(--gold)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center
+        }
+
+        .nav-links a {
+            color: #b9b9b9;
+            font-size: 12px;
+            transition: .25s
+        }
+
+        .nav-links a:hover {
+            color: var(--gold)
+        }
+
+        .nav-cta {
+            border: 1px solid rgba(201, 172, 121, .65);
+            padding: 11px 19px;
+            color: var(--gold) !important
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 0;
+            color: white;
+            font-size: 25px;
+            cursor: pointer
+        }
+
+        .hero {
+            min-height: 850px;
+            padding: 190px 0 100px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            right: -260px;
+            top: 100px;
+            border: 1px solid rgba(201, 172, 121, .13);
+            border-radius: 50%;
+            box-shadow: 0 0 0 70px rgba(201, 172, 121, .025), 0 0 0 150px rgba(201, 172, 121, .02)
+        }
+
+        .hero:after {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            right: -135px;
+            top: 225px;
+            border: 1px solid rgba(201, 172, 121, .2);
+            border-radius: 50%
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px
+        }
+
+        .hero h1 {
+            font: 600 clamp(48px, 7.5vw, 94px)/1.08 var(--font);
+            letter-spacing: -5px;
+            margin: 25px 0
+        }
+
+        .hero h1 span {
+            color: var(--gold)
+        }
+
+        .hero p {
+            color: #a5a6a8;
+            max-width: 570px;
+            font-size: 16px;
+            line-height: 1.9
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 38px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 15px 23px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: .3s
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #101113
+        }
+
+        .btn-primary:hover {
+            background: #e0c99f;
+            transform: translateY(-3px)
+        }
+
+        .btn-outline {
+            border: 1px solid var(--line);
+            color: var(--white)
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold)
+        }
+
+        .hero-bottom {
+            position: absolute;
+            bottom: 35px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 10px;
+            letter-spacing: 2px
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: start
+        }
+
+        .intro-statement {
+            font: 500 clamp(28px, 3.5vw, 43px)/1.35 var(--font);
+            letter-spacing: -1.5px
+        }
+
+        .intro-statement span {
+            color: var(--gold)
+        }
+
+        .intro-details {
+            padding-top: 12px;
+            color: var(--muted)
+        }
+
+        .intro-details p+p {
+            margin-top: 20px
+        }
+
+        .text-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px
+        }
+
+        .capabilities {
+            background: #101215
+        }
+
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 55px;
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line)
+        }
+
+        .cap-card {
+            min-height: 260px;
+            padding: 32px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            transition: .3s
+        }
+
+        .cap-card:hover {
+            background: var(--surface2)
+        }
+
+        .cap-number {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2px
+        }
+
+        .cap-card h3 {
+            font: 600 20px var(--font);
+            margin: 30px 0 13px
+        }
+
+        .cap-card p {
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .cap-arrow {
+            display: block;
+            color: var(--gold);
+            margin-top: 25px
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 55px
+        }
+
+        .step {
+            border-top: 1px solid var(--gold);
+            padding-top: 25px
+        }
+
+        .step-number {
+            color: var(--gold);
+            font-size: 12px
+        }
+
+        .step h3 {
+            font: 600 19px var(--font);
+            margin: 22px 0 12px
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 50px
+        }
+
+        .work-card {
+            min-height: 330px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden
+        }
+
+        .work-card:after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            right: -80px;
+            top: -80px;
+            border: 1px solid rgba(201, 172, 121, .18);
+            border-radius: 50%
+        }
+
+        .work-type {
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 2px
+        }
+
+        .work-card h3 {
+            font: 600 clamp(24px, 3vw, 34px)/1.25 var(--font);
+            max-width: 360px;
+            position: relative;
+            z-index: 1
+        }
+
+        .work-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 12px
+        }
+
+        .contact {
+            background: var(--gold);
+            color: #111214;
+            padding: 95px 0
+        }
+
+        .contact .eyebrow {
+            color: #493b28
+        }
+
+        .contact h2 {
+            font: 700 clamp(40px, 6vw, 72px)/1.1 var(--font);
+            letter-spacing: -3px;
+            max-width: 780px;
+            margin: 25px 0
+        }
+
+        .contact p {
+            max-width: 520px;
+            color: #413a30
+        }
+
+        .contact .btn-primary {
+            background: #111214;
+            color: white;
+            margin-top: 30px
+        }
+
+        .contact .btn-primary:hover {
+            background: #292a2b
+        }
+
+        footer {
+            padding: 45px 0
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 35px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .footer-tagline {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 25px;
+            color: #777;
+            font-size: 11px
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 22px
+        }
+
+        .footer-social a:hover {
+            color: var(--gold)
+        }
+
+        /* One port view slider  */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide {
+            flex: 0 0 100vw;
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8vw;
+        }
+
+        @media(max-width:800px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 82px;
+                left: 0;
+                right: 0;
+                background: #111315;
+                padding: 30px 6%;
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--line)
+            }
+
+            .nav-links.open {
+                display: flex
+            }
+
+            .menu-toggle {
+                display: block
+            }
+
+            .hero {
+                min-height: 760px;
+                padding-top: 150px
+            }
+
+            .hero h1 {
+                letter-spacing: -2.5px
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 30px
+            }
+
+            .cap-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:520px) {
+            .section {
+                padding: 80px 0
+            }
+
+            .hero {
+                min-height: 700px
+            }
+
+            .hero-bottom {
+                font-size: 8px
+            }
+
+            .cap-grid,
+            .work-grid {
+                grid-template-columns: 1fr
+            }
+
+            .cap-card {
+                min-height: 220px
+            }
+
+            .approach-grid {
+                gap: 35px 20px
+            }
+
+            .footer-top,
+            .footer-bottom {
+                align-items: flex-start;
+                flex-direction: column
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *:before,
+            *:after {
+                transition: none !important
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header id="header">
-  <div class="container">
-    <nav aria-label="Main navigation">
-      <a href="#home" class="logo" aria-label="AVENIQ home">AVENIQ<span>.</span></a>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">ABOUT</a><a href="#capabilities">CAPABILITIES</a>
-        <a href="#approach">APPROACH</a><a href="#work">SELECTED WORK</a>
-        <a href="#contact" class="nav-cta">LET'S TALK ↗</a>
-      </div>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    </nav>
-  </div>
-</header>
-<main>
-<section class="hero" id="home">
-  <div class="container"><div class="hero-content">
-    <div class="eyebrow">Digital Growth &amp; Technology Partner</div>
-    <h1>Business growth,<br>engineered for<br><span>what's next.</span></h1>
-    <p>We connect strategy, technology and digital execution to help businesses operate smarter, grow stronger and move forward with confidence.</p>
-    <div class="hero-actions">
-      <a href="#capabilities" class="btn btn-primary">Explore capabilities ↗</a>
-      <a href="#about" class="btn btn-outline">Discover AVENIQ</a>
-    </div>
-  </div></div>
-  <div class="container hero-bottom"><span>BUILD. CONNECT. GROW.</span><span>INDEPENDENT DIGITAL CONSULTANCY</span></div>
-</section>
-<section class="section" id="about"><div class="container intro-grid">
-  <div><div class="eyebrow">01 / About AVENIQ</div><h2 class="intro-statement">Technology is not the destination. <span>Business progress is.</span></h2></div>
-  <div class="intro-details">
-    <p>AVENIQ is a digital growth and technology partner helping businesses navigate complexity and unlock new opportunities through connected digital solutions.</p>
-    <p>We bring together business thinking, technical expertise and creative execution — turning fragmented challenges into practical, scalable systems.</p>
-    <a href="#approach" class="text-link">HOW WE THINK ↗</a>
-  </div>
-</div></section>
-<section class="section capabilities" id="capabilities"><div class="container">
-  <div class="eyebrow">02 / What We Do</div><h2 class="section-heading">Connected capabilities.<br>Meaningful outcomes.</h2>
-  <p class="section-copy">From digital foundations to intelligent operations, we help businesses build the systems they need to grow.</p>
-  <div class="cap-grid">
-    <article class="cap-card"><span class="cap-number">01 / PLATFORMS</span><h3>Digital Platforms &amp; Experience</h3><p>Websites, e-commerce, digital experiences and connected business platforms.</p><span class="cap-arrow">↗</span></article>
-    <article class="cap-card"><span class="cap-number">02 / GROWTH</span><h3>Growth Marketing &amp; Acquisition</h3><p>Digital strategy, SEO, paid media and customer acquisition systems.</p><span class="cap-arrow">↗</span></article>
-    <article class="cap-card"><span class="cap-number">03 / CUSTOMER</span><h3>CRM &amp; Customer Lifecycle</h3><p>Lead management, customer journeys, retention and relationship systems.</p><span class="cap-arrow">↗</span></article>
-    <article class="cap-card"><span class="cap-number">04 / INTELLIGENCE</span><h3>AI &amp; Workflow Automation</h3><p>Intelligent workflows, practical AI adoption and business process automation.</p><span class="cap-arrow">↗</span></article>
-    <article class="cap-card"><span class="cap-number">05 / INSIGHTS</span><h3>Data &amp; Analytics</h3><p>Measurement, reporting, business intelligence and continuous optimisation.</p><span class="cap-arrow">↗</span></article>
-    <article class="cap-card"><span class="cap-number">06 / DIRECTION</span><h3>Strategy &amp; Creative Systems</h3><p>Digital audits, technology roadmaps, brand direction and project leadership.</p><span class="cap-arrow">↗</span></article>
-  </div>
-</div></section>
-<section class="section" id="approach"><div class="container">
-  <div class="eyebrow">03 / Our Approach</div><h2 class="section-heading">Clarity before complexity.<br>Execution with purpose.</h2>
-  <p class="section-copy">Good solutions start with understanding the business. Our approach connects every decision to a clear objective.</p>
-  <div class="approach-grid">
-    <article class="step"><span class="step-number">01 — UNDERSTAND</span><h3>Discover</h3><p>We understand your business, challenges, customers and opportunities.</p></article>
-    <article class="step"><span class="step-number">02 — ARCHITECT</span><h3>Strategise</h3><p>We define priorities and design a practical roadmap for progress.</p></article>
-    <article class="step"><span class="step-number">03 — EXECUTE</span><h3>Build</h3><p>We implement connected digital solutions with focus and accountability.</p></article>
-    <article class="step"><span class="step-number">04 — OPTIMISE</span><h3>Evolve</h3><p>We measure outcomes, improve performance and identify what's next.</p></article>
-  </div>
-</div></section>
-<section class="section" id="work"><div class="container">
-  <div class="eyebrow">04 / Selected Work</div><h2 class="section-heading">Ideas into implementation.</h2>
-  <p class="section-copy">A selection of digital projects and capabilities. Detailed case studies will be added as projects are approved for publication.</p>
-  <div class="work-grid">
-    <article class="work-card"><span class="work-type">DIGITAL PLATFORMS / WEB DEVELOPMENT</span><div><h3>Building digital experiences for business.</h3><p>Custom websites, user experience and platform development.</p></div></article>
-    <article class="work-card"><span class="work-type">DIGITAL GROWTH / MARKETING</span><div><h3>Connecting visibility with business growth.</h3><p>Digital presence, acquisition strategy and performance optimisation.</p></div></article>
-  </div>
-</div></section>
-<section class="contact" id="contact"><div class="container">
-  <div class="eyebrow">05 / Start a Conversation</div><h2>Let's build what's next for your business.</h2>
-  <p>Have a challenge, an idea or a digital initiative in mind? Let's explore how we can move it forward.</p>
-  <!-- Replace the email below with your verified business email before launch. -->
-  <a class="btn btn-primary" href="mailto:hello@aveniq.com?subject=Business%20Enquiry%20-%20AVENIQ">Discuss a project ↗</a>
-</div></section>
-</main>
-<footer><div class="container">
-  <div class="footer-top"><a href="#home" class="logo">AVENIQ<span>.</span></a><div class="footer-tagline">BUILD. CONNECT. GROW.</div></div>
-  <div class="footer-bottom"><span>© <span id="year"></span> AVENIQ. All rights reserved.</span><div class="footer-social"><a href="#contact">LinkedIn</a><a href="#contact">Instagram</a><a href="mailto:hello@aveniq.com">Email</a></div></div>
-</div></footer>
-<script>
-const header=document.getElementById('header');
-const toggle=document.getElementById('menuToggle');
-const links=document.getElementById('navLinks');
-window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>30),{passive:true});
-toggle.addEventListener('click',()=>{
-  const open=links.classList.toggle('open');
-  toggle.textContent=open?'×':'☰';
-  toggle.setAttribute('aria-expanded',String(open));
-  toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
-});
-links.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
-  links.classList.remove('open');toggle.textContent='☰';
-  toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');
-}));
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+    <header id="header">
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <a href="#home" class="logo" aria-label="AVENIQ home">AVENIQ<span>.</span></a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#about">ABOUT</a><a href="#capabilities">CAPABILITIES</a>
+                    <a href="#approach">APPROACH</a><a href="#work">SELECTED WORK</a>
+                    <a href="#contact" class="nav-cta">LET'S TALK ↗</a>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Open navigation"
+                    aria-expanded="false">☰</button>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="eyebrow">Digital Growth &amp; Technology Partner</div>
+                    <h1>Business growth,<br>engineered for<br><span>what's next.</span></h1>
+                    <p>We connect strategy, technology and digital execution to help businesses operate smarter, grow
+                        stronger and move forward with confidence.</p>
+                    <div class="hero-actions">
+                        <a href="#capabilities" class="btn btn-primary">Explore capabilities ↗</a>
+                        <a href="#about" class="btn btn-outline">Discover AVENIQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container hero-bottom"><span>BUILD. CONNECT. GROW.</span><span>INDEPENDENT DIGITAL
+                    CONSULTANCY</span></div>
+        </section>
+        <section class="section" id="about">
+            <div class="container intro-grid">
+                <div>
+                    <div class="eyebrow">01 / About AVENIQ</div>
+                    <h2 class="intro-statement">Technology is not the destination. <span>Business progress is.</span>
+                    </h2>
+                </div>
+                <div class="intro-details">
+                    <p>AVENIQ is a digital growth and technology partner helping businesses navigate complexity and
+                        unlock new opportunities through connected digital solutions.</p>
+                    <p>We bring together business thinking, technical expertise and creative execution — turning
+                        fragmented challenges into practical, scalable systems.</p>
+                    <a href="#approach" class="text-link">HOW WE THINK ↗</a>
+                </div>
+            </div>
+        </section>
+        <section class="section capabilities" id="capabilities">
+            <div class="container">
+                <div class="eyebrow">02 / What We Do</div>
+                <h2 class="section-heading">Connected capabilities.<br>Meaningful outcomes.</h2>
+                <p class="section-copy">From digital foundations to intelligent operations, we help businesses build the
+                    systems they need to grow.</p>
+                <div class="cap-grid">
+                    <article class="cap-card"><span class="cap-number">01 / PLATFORMS</span>
+                        <h3>Digital Platforms &amp; Experience</h3>
+                        <p>Websites, e-commerce, digital experiences and connected business platforms.</p><span
+                            class="cap-arrow">↗</span>
+                    </article>
+                    <article class="cap-card"><span class="cap-number">02 / GROWTH</span>
+                        <h3>Growth Marketing &amp; Acquisition</h3>
+                        <p>Digital strategy, SEO, paid media and customer acquisition systems.</p><span
+                            class="cap-arrow">↗</span>
+                    </article>
+                    <article class="cap-card"><span class="cap-number">03 / CUSTOMER</span>
+                        <h3>CRM &amp; Customer Lifecycle</h3>
+                        <p>Lead management, customer journeys, retention and relationship systems.</p><span
+                            class="cap-arrow">↗</span>
+                    </article>
+                    <article class="cap-card"><span class="cap-number">04 / INTELLIGENCE</span>
+                        <h3>AI &amp; Workflow Automation</h3>
+                        <p>Intelligent workflows, practical AI adoption and business process automation.</p><span
+                            class="cap-arrow">↗</span>
+                    </article>
+                    <article class="cap-card"><span class="cap-number">05 / INSIGHTS</span>
+                        <h3>Data &amp; Analytics</h3>
+                        <p>Measurement, reporting, business intelligence and continuous optimisation.</p><span
+                            class="cap-arrow">↗</span>
+                    </article>
+                    <article class="cap-card"><span class="cap-number">06 / DIRECTION</span>
+                        <h3>Strategy &amp; Creative Systems</h3>
+                        <p>Digital audits, technology roadmaps, brand direction and project leadership.</p><span
+                            class="cap-arrow">↗</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="approach">
+            <div class="container">
+                <div class="eyebrow">03 / Our Approach</div>
+                <h2 class="section-heading">Clarity before complexity.<br>Execution with purpose.</h2>
+                <p class="section-copy">Good solutions start with understanding the business. Our approach connects
+                    every decision to a clear objective.</p>
+                <div class="approach-grid">
+                    <article class="step"><span class="step-number">01 — UNDERSTAND</span>
+                        <h3>Discover</h3>
+                        <p>We understand your business, challenges, customers and opportunities.</p>
+                    </article>
+                    <article class="step"><span class="step-number">02 — ARCHITECT</span>
+                        <h3>Strategise</h3>
+                        <p>We define priorities and design a practical roadmap for progress.</p>
+                    </article>
+                    <article class="step"><span class="step-number">03 — EXECUTE</span>
+                        <h3>Build</h3>
+                        <p>We implement connected digital solutions with focus and accountability.</p>
+                    </article>
+                    <article class="step"><span class="step-number">04 — OPTIMISE</span>
+                        <h3>Evolve</h3>
+                        <p>We measure outcomes, improve performance and identify what's next.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="work">
+            <div class="container">
+                <div class="eyebrow">04 / Selected Work</div>
+                <h2 class="section-heading">Ideas into implementation.</h2>
+                <p class="section-copy">A selection of digital projects and capabilities. Detailed case studies will be
+                    added as projects are approved for publication.</p>
+                <div class="work-grid">
+                    <article class="work-card"><span class="work-type">DIGITAL PLATFORMS / WEB DEVELOPMENT</span>
+                        <div>
+                            <h3>Building digital experiences for business.</h3>
+                            <p>Custom websites, user experience and platform development.</p>
+                        </div>
+                    </article>
+                    <article class="work-card"><span class="work-type">DIGITAL GROWTH / MARKETING</span>
+                        <div>
+                            <h3>Connecting visibility with business growth.</h3>
+                            <p>Digital presence, acquisition strategy and performance optimisation.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="eyebrow">05 / Start a Conversation</div>
+                <h2>Let's build what's next for your business.</h2>
+                <p>Have a challenge, an idea or a digital initiative in mind? Let's explore how we can move it forward.
+                </p>
+                <!-- Replace the email below with your verified business email before launch. -->
+                <a class="btn btn-primary"
+                    href="mailto:hello@aveniq.com?subject=Business%20Enquiry%20-%20AVENIQ">Discuss a project ↗</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-top"><a href="#home" class="logo">AVENIQ<span>.</span></a>
+                <div class="footer-tagline">BUILD. CONNECT. GROW.</div>
+            </div>
+            <div class="footer-bottom"><span>© <span id="year"></span> AVENIQ. All rights reserved.</span>
+                <div class="footer-social"><a href="#contact">LinkedIn</a><a href="#contact">Instagram</a><a
+                        href="mailto:hello@aveniq.com">Email</a></div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const header = document.getElementById('header');
+        const toggle = document.getElementById('menuToggle');
+        const links = document.getElementById('navLinks');
+        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30), {
+            passive: true
+        });
+        toggle.addEventListener('click', () => {
+            const open = links.classList.toggle('open');
+            toggle.textContent = open ? '×' : '☰';
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        });
+        links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+            links.classList.remove('open');
+            toggle.textContent = '☰';
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Open navigation');
+        }));
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>
